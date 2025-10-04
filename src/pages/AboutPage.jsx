@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import "../styles/AboutPage.css";
 import school from "../assets/school.webp";
-import graduate from "../assets/graduate.jpg"; // ✨
-//  Assuming you have a graduation image
-import college from "../assets/college.png"; // ✨
+import graduate from "../assets/graduate.jpg"; 
+
+import college from "../assets/college.png"; 
 import plustwo from "../assets/plustwo.webp"
 import { gsap } from "gsap";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
@@ -21,7 +21,7 @@ const roadmapData = [
   {
     title: "Mkm Higher Secondary School ",
     desc: "Completed higher secondary education with focus on Science subjects, participated in competitions and developed leadership skills.",
-    img: plustwo, // Use the new plus two image here
+    img: plustwo, 
   },
   {
     title: "MGM college of Engineering ",
@@ -31,7 +31,7 @@ const roadmapData = [
   {
     title: "Graduation",
     desc: "Achieved my degree, marking the successful completion of my academic journey.",
-    img: graduate, // Use the new graduation image here
+    img: graduate, 
   },
 ];
 
@@ -40,7 +40,7 @@ const AboutPage = () => {
   const roadmapWrapperRef = useRef(null);
 
   useEffect(() => {
-    // Animate the path line using ScrollTrigger
+  
     gsap.fromTo(
       pathRef.current,
       { drawSVG: "0%" },
@@ -83,9 +83,9 @@ const AboutPage = () => {
                  L20 350
                  L20 550
                  L80 550
-                 L80 750
+                 L80 700
                  "
-              stroke="#f8eff2ff"
+              stroke="#f50909ff"
               strokeWidth="0.2"
               fill="none"
               strokeLinecap="round"
