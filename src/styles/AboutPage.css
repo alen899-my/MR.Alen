@@ -1,0 +1,118 @@
+.abt_page_container {
+padding: 20px;
+color: white;
+font-family: "Orbitron", sans-serif;
+overflow-x: hidden;
+}
+
+.abt_page_container h1 {
+font-size: 36px;
+margin-top: 70px;
+margin-bottom: 50px;
+text-align: center;
+}
+
+.road_map_intro {
+position: relative;
+z-index: 3;
+}
+
+.road_map_intro p {
+max-width: 800px;
+margin: 0 auto 50px auto;
+font-size: 18px;
+line-height: 1.6;
+text-align: justify;
+}
+
+.roadmap_wrapper {
+position: relative;
+width: 80%; /* Desktop width */
+margin: 0 auto;
+min-height: 1000px;
+overflow: visible;
+}
+
+.roadmap_line {
+position: absolute;
+left: 50%; /* Center the line for desktop zig-zag */
+top: 0;
+transform: translateX(-50%);
+height: 100%;
+width: 100%;
+z-index: 1;
+}
+
+.roadmap_item {
+position: relative;
+width: 45%; /* Desktop width */
+margin: 150px 0;
+z-index: 2;
+}
+
+.roadmap_item.left {
+left: 0;
+text-align: right;
+}
+
+.roadmap_item.right {
+left: 55%;
+text-align: left;
+}
+
+.roadmap_item .content {
+background: rgba(211, 12, 72, 0.1);
+padding: 20px;
+border-radius: 10px;
+position: relative;
+}
+
+.roadmap_item img {
+margin-top: 10px;
+width: 100%; /* Smaller image on desktop */
+height: auto;
+border-radius: 10px;
+}
+
+/* --- Mobile Responsiveness (Screen size up to 768px) --- */
+@media (max-width: 768px) {
+
+.abt_page_container h1 {
+    font-size: 28px;
+    text-align: center;
+}
+
+.roadmap_wrapper {
+    width: 95%; 
+    min-height: 1200px; 
+}
+
+/* Move the line to the far left to create a vertical timeline */
+.roadmap_line {
+    left: 5%; 
+    transform: translateX(0); 
+    width: 90%; 
+}
+
+.roadmap_item {
+    /* Stack all items vertically */
+    width: 85%; 
+    margin: 80px 0; 
+}
+
+/* Override desktop positioning for both left and right items */
+.roadmap_item.left,
+.roadmap_item.right {
+    left: 15%; /* Push content to the right of the line */
+    text-align: left; /* Ensure all text aligns left */
+}
+
+.roadmap_item .content {
+    padding: 15px;
+}
+
+.roadmap_item img {
+    width: 100%; /* Image takes full width of the content box on mobile for better visibility */
+}
+
+}
