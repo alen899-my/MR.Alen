@@ -1,14 +1,19 @@
 /* Container covers full viewport */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .grid-background-container {
   position: relative;
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  background-color: white;
+  background-color: rgb(0, 0, 0);
 }
 
 .dark .grid-background-container {
-  background-color: black;
+  background-color: rgb(248, 243, 243);
 }
 
 /* Grid layer with animation */
@@ -17,13 +22,13 @@
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(to right, #e4e4e7 1px, transparent 1px),
-    linear-gradient(to bottom, #e4e4e7 1px, transparent 1px);
+    linear-gradient(to right, #e4e4e748 1px, transparent 1px),
+    linear-gradient(to bottom, #e4e4e765 1px, transparent 1px);
   background-size: 40px 40px;
   z-index: 0;
 
   /* Animate diagonally */
-  animation: moveGrid 30s linear infinite;
+  animation: moveGrid 100s linear infinite;
 }
 
 .dark .grid-background-container::before {
@@ -38,7 +43,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   mask-image: radial-gradient(ellipse at center, transparent 20%, black 100%);
   z-index: 1;
 }
@@ -59,6 +64,6 @@
     background-position: 0 0, 0 0;
   }
   100% {
-    background-position: 400px 400px, 400px 400px;
+    background-position: 00px 200px, 200px 200px;
   }
 }

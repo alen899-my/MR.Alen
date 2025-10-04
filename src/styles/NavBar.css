@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+.navbar_container{
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.logo h1{
+
+    padding: 10px 20px;
+    color: white;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+}
+.logo h1:hover{
+    cursor: pointer;
+}
+ul{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+li {
+    list-style: none;
+    padding: 10px 20px;
+    color: white;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Neon-like hover effect */
+li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: #d30c48; /* neon cyan underline */
+    transition: width 0.3s ease;
+}
+
+li:hover::after {
+    width: 85%; /* underline grows on hover */
+}
+
+li:hover {
+    
+    transform: scale(1.1); /* slightly enlarge text */
+    text-shadow: 0 0 5px #d61424, 0 0 10px #db102b, 0 0 15px #be2727;
+    cursor: pointer;
+}
+li:active{
+    li.active {
+   color: #cc1241; /* text glow color */
+   text-shadow: 0 0 5px #d61424, 0 0 10px #db102b, 0 0 15px #be2727;
+}
+}
