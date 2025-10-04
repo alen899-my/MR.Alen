@@ -3,22 +3,15 @@ import "../styles/HomePage.css";
 import test from "../assets/test.jpg";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { TextPlugin } from "gsap/TextPlugin";
-import SplitType from "split-type"; // <-- import SplitType
+import SplitType from "split-type"; // For heading animation
 
-gsap.registerPlugin(ScrollTrigger, TextPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
 const HomePage = () => {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
   const pRef = useRef(null);
   const headlineRef = useRef(null); // Ref for the heading
-
-  const paragraphText = `
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti et, neque asperiores vitae facere beatae reprehenderit eaque consequatur necessitatibus quibusdam cum nisi animi veniam distinctio, totam at labore ad sed.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit perferendis odit in. Vitae sint in quod soluta, non, ipsa facere consequuntur dolorum eos quia aspernatur. Repellat ipsam consectetur pariatur sapiente.
-  `;
 
   useEffect(() => {
     // SplitType for heading animation
@@ -30,7 +23,7 @@ const HomePage = () => {
     gsap.from(splitHeadline.lines, {
       y: "100%",
       opacity: 0,
-      duration: 2.2,
+      duration: .2,
       ease: "power1.out",
       stagger: 0.1,
       scrollTrigger: {
@@ -40,7 +33,7 @@ const HomePage = () => {
       },
     });
 
-    // Left side animation
+    // Left side animation (other elements except heading and paragraph)
     const leftElements = leftRef.current.children;
     gsap.from(leftElements, {
       scrollTrigger: {
@@ -57,35 +50,31 @@ const HomePage = () => {
 
     // Right side image animation
     gsap.from(rightRef.current, {
-  scrollTrigger: {
-    trigger: rightRef.current,
-    start: "top 80%",
-    toggleActions: "play none none none",
-  },
-  duration: 1.2,
-  x: 100,        // slide in from right
-  scale: 0.8,    // start smaller
-  opacity: 0,
-  rotation: 5,   // slight rotation for effect
-  ease: "power3.out",
-});
+      scrollTrigger: {
+        trigger: rightRef.current,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+      duration: 1.2,
+      x: 100,      // slide in from right
+      scale: 0.8,  // start smaller
+      opacity: 0,
+      rotation: 5, // slight rotation for effect
+      ease: "power3.out",
+    });
 
-
-    // Typing effect for paragraph
-    gsap.fromTo(
-      pRef.current,
-      { text: "" },
-      {
-        text: paragraphText,
-        duration: 6, // typing duration in seconds
-        scrollTrigger: {
-          trigger: pRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-        ease: "none",
-      }
-    );
+    // Smooth fade/slide animation for paragraph
+    gsap.from(pRef.current, {
+      scrollTrigger: {
+        trigger: pRef.current,
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+      y: 20,       // small slide from bottom
+      opacity: 0,  // fade in
+      duration: 1.5,
+      ease: "power2.out",
+    });
   }, []);
 
   return (
@@ -95,7 +84,16 @@ const HomePage = () => {
           <h1 ref={headlineRef}>The right Person For your Industry!</h1>
         </div>
         <div className="short_desc">
-          <p ref={pRef}></p>
+          <p ref={pRef}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+            quod. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Deleniti et, neque asperiores vitae facere beatae reprehenderit
+            eaque consequatur necessitatibus quibusdam cum nisi animi veniam
+            distinctio, totam at labore ad sed. Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Fugit perferendis odit in. Vitae sint
+            in quod soluta, non, ipsa facere consequuntur dolorum eos quia
+            aspernatur. Repellat ipsam consectetur pariatur sapiente.
+          </p>
         </div>
         <div className="explore_button">
           <button>Explore Me</button>
