@@ -117,17 +117,19 @@
         flex-direction: column-reverse;
         align-items: center;
         text-align: center;
-        margin-top: -40px;
+       
     }
 
     .left_side,
     .right_side {
         flex: none;
         width: 100%;
+
     }
 
     .tag h1 {
         font-size: 30px;
+        margin-bottom: 20px;
     }
 
     .short_desc p {

@@ -83,7 +83,8 @@ border-radius: 10px;
 }
 
 .roadmap_wrapper {
-    width: 95%; 
+
+    width: 100%; 
     min-height: 1200px; 
 }
 
@@ -96,8 +97,8 @@ border-radius: 10px;
 
 .roadmap_item {
     /* Stack all items vertically */
-    width: 85%; 
-    margin: 80px 0; 
+    width: 100%; 
+    margin-left: -60px;
 }
 
 /* Override desktop positioning for both left and right items */
