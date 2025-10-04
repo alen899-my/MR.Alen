@@ -4,6 +4,7 @@ import test from "../assets/test.jpg";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TextPlugin } from "gsap/TextPlugin";
+import SplitType from "split-type"; // <-- import SplitType
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
@@ -11,6 +12,7 @@ const HomePage = () => {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
   const pRef = useRef(null);
+  const headlineRef = useRef(null); // Ref for the heading
 
   const paragraphText = `
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
@@ -19,6 +21,25 @@ const HomePage = () => {
   `;
 
   useEffect(() => {
+    // SplitType for heading animation
+    const splitHeadline = new SplitType(headlineRef.current, {
+      types: "lines, words, chars",
+      tagName: "span",
+    });
+
+    gsap.from(splitHeadline.lines, {
+      y: "100%",
+      opacity: 0,
+      duration: 2.2,
+      ease: "power1.out",
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: headlineRef.current,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+
     // Left side animation
     const leftElements = leftRef.current.children;
     gsap.from(leftElements, {
@@ -36,16 +57,19 @@ const HomePage = () => {
 
     // Right side image animation
     gsap.from(rightRef.current, {
-      scrollTrigger: {
-        trigger: rightRef.current,
-        start: "top 80%",
-        toggleActions: "play none none none",
-      },
-      duration: 1,
-      x: 50,
-      opacity: 0,
-      ease: "power3.out",
-    });
+  scrollTrigger: {
+    trigger: rightRef.current,
+    start: "top 80%",
+    toggleActions: "play none none none",
+  },
+  duration: 1.2,
+  x: 100,        // slide in from right
+  scale: 0.8,    // start smaller
+  opacity: 0,
+  rotation: 5,   // slight rotation for effect
+  ease: "power3.out",
+});
+
 
     // Typing effect for paragraph
     gsap.fromTo(
@@ -53,7 +77,7 @@ const HomePage = () => {
       { text: "" },
       {
         text: paragraphText,
-        duration: 5, // typing duration in seconds
+        duration: 6, // typing duration in seconds
         scrollTrigger: {
           trigger: pRef.current,
           start: "top 80%",
@@ -68,7 +92,7 @@ const HomePage = () => {
     <div className="homepage_container">
       <div className="left_side" ref={leftRef}>
         <div className="tag">
-          <h1>The right Person For your Industry!</h1>
+          <h1 ref={headlineRef}>The right Person For your Industry!</h1>
         </div>
         <div className="short_desc">
           <p ref={pRef}></p>

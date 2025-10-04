@@ -4,6 +4,7 @@ import  GridBackground  from "./components/GridBackground";
 import "../src/styles/App.css";
 import NavBar from "./components/NavBar";
 import HomePage from "../src/pages/HomePage"
+import AboutPage from "./pages/AboutPage";
 function App() {
   return (
     <>
@@ -12,6 +13,7 @@ function App() {
     <GridBackground>
       <Outlet />
       <HomePage/>
+      <AboutPage/>
       
     </GridBackground></>
   );
