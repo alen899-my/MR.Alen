@@ -1,23 +1,23 @@
 @import url(NavBar.css);
 
 .homepage_container {
-
-
-    margin-top: 100px;
-    height: 100vh;
+    /* Removed margin-top: 100px; - Let the content flow naturally */
+    
+    /* FIX: Changed height: 100vh to min-height for content adaptability */
+    min-height: 100vh; 
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-top: 60px; /* Added padding to ensure content is below a fixed navigation bar, if present */
 }
 
 .left_side {
     flex: 1;
-
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Center content vertically on desktop */
 }
-
-.tag {}
 
 .tag h1 {
     color: white;
@@ -25,8 +25,7 @@
     font-family: "Orbitron", sans-serif;
     padding: 20px;
     text-align: center;
-    margin-top: 100px;
-
+    margin-top: 0; /* Reset margin-top to avoid large gaps */
 }
 
 .short_desc {}
@@ -43,12 +42,12 @@
 
 .right_side {
     flex: 1;
-
-
+    display: flex; /* Ensure the image container is centered/handled correctly */
+    align-items: center;
+    justify-content: center;
 }
 
 .explore_button {
-
     display: flex;
     justify-content: center;
     padding: 20px 100px;
@@ -94,13 +93,14 @@
 
 .img_Container {
     width: 100%;
-    height: 100vh;
-    /* or any specific height you want */
+    /* FIX: Changed height: 100vh to a flexible height */
+    height: 450px; 
+    /* The height will be controlled by the parent flex container in desktop mode, 
+       but setting a max height here helps control it on mobile */
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    /* ensures image doesn’t overflow */
 }
 
 .img_Container img {
@@ -108,7 +108,6 @@
     height: 100%;
     mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
     object-fit: cover;
-    /* this makes the image cover the container */
 }
 
 /* Responsive adjustments */
@@ -117,28 +116,30 @@
         flex-direction: column-reverse;
         align-items: center;
         text-align: center;
-       
+        padding-top: 20px; /* Less padding on mobile */
     }
 
     .left_side,
     .right_side {
         flex: none;
         width: 100%;
-
+        padding: 0 20px; /* Add horizontal padding to prevent edges touching screen */
     }
 
     .tag h1 {
         font-size: 30px;
-        margin-bottom: 20px;
+        margin-top: 10px; /* Adjusted margin to prevent clash with previous margin-top: -40px */
+        padding: 10px 0;
     }
 
     .short_desc p {
         font-size: 16px;
-        padding: 10px;
+        padding: 10px 0;
+        text-align: center; /* Center text on mobile for better reading */
     }
 
     .explore_button {
-        padding: 10px 50px;
+        padding: 10px;
         margin-top: 20px;
     }
 
@@ -148,8 +149,7 @@
     }
 
     .img_Container {
-        margin: 40px 0;
+        margin: 20px 0;
         height: 300px;
-        /* adjust as needed for smaller screens */
     }
 }
