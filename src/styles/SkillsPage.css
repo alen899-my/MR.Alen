@@ -1,0 +1,258 @@
+.skillsContainer {
+  padding: 40px 20px;
+  color: white;
+  font-family: "Orbitron", sans-serif;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.skillsContainer h1 {
+  font-size: 3rem;
+  margin-bottom: 50px;
+  background: linear-gradient(45deg, #d30c48, #ff6b6b, #d30c48);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(211, 12, 72, 0.5);
+}
+
+.skill_board_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.skill_board {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(145deg, #1e1e1e, #2d2d2d);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 2px solid #d30c48;
+}
+
+.snake_ladder_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.skill_cell {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill_cell::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.skill_cell:hover::before {
+  transform: translateX(100%);
+}
+
+.ladder_cell {
+  border-color: #ffffff;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+.ladder_cell:hover {
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.5);
+  transform: translateY(-5px);
+}
+
+.snake_cell {
+  border-color: #ff4444;
+  box-shadow: 0 5px 15px rgba(255, 68, 68, 0.3);
+}
+
+.snake_cell:hover {
+  box-shadow: 0 8px 25px rgba(255, 68, 68, 0.5);
+  transform: translateY(-5px);
+}
+
+.skill_icon {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.skill_name {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.skill_level {
+  font-size: 0.7rem;
+  color: #ccc;
+  opacity: 0.8;
+}
+
+/* Snakes Styles */
+.snakes_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.snake {
+  position: absolute;
+  background: linear-gradient(to right, #ff4444, #ff6b6b);
+  border-radius: 10px;
+  opacity: 0.6;
+}
+
+.snake-1 {
+  width: 4px;
+  height: 120px;
+  top: 50px;
+  left: 25%;
+  transform: rotate(45deg);
+  animation: snakeMove 3s ease-in-out infinite;
+}
+
+.snake-2 {
+  width: 4px;
+  height: 150px;
+  top: 150px;
+  right: 30%;
+  transform: rotate(-30deg);
+  animation: snakeMove 4s ease-in-out infinite reverse;
+}
+
+.snake-3 {
+  width: 4px;
+  height: 100px;
+  bottom: 100px;
+  left: 40%;
+  transform: rotate(60deg);
+  animation: snakeMove 2.5s ease-in-out infinite;
+}
+
+/* Ladders Styles */
+.ladders_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ladder {
+  position: absolute;
+  background: linear-gradient(to bottom, #4CAF50, #81C784);
+  opacity: 0.6;
+}
+
+.ladder-1 {
+  width: 6px;
+  height: 180px;
+  top: 80px;
+  left: 60%;
+  animation: ladderShine 4s ease-in-out infinite;
+}
+
+.ladder-2 {
+  width: 6px;
+  height: 140px;
+  top: 200px;
+  left: 20%;
+  animation: ladderShine 3s ease-in-out infinite reverse;
+}
+
+.ladder-3 {
+  width: 6px;
+  height: 160px;
+  bottom: 120px;
+  right: 25%;
+  animation: ladderShine 5s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes snakeMove {
+  0%, 100% {
+    transform: rotate(45deg) translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: rotate(45deg) translateY(10px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes ladderShine {
+  0%, 100% {
+    opacity: 0.4;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 20px rgb(255, 255, 255);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .skill_board {
+    width: 95%;
+    height: 500px;
+    padding: 20px;
+  }
+  
+  .snake_ladder_grid {
+    gap: 15px;
+  }
+  
+  .skill_icon {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .snake_ladder_grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+  }
+  
+  .skill_board {
+    height: 600px;
+  }
+  
+  .skillsContainer h1 {
+    font-size: 2rem;
+  }
+}
