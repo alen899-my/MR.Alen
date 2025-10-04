@@ -1,0 +1,64 @@
+/* Container covers full viewport */
+.grid-background-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: white;
+}
+
+.dark .grid-background-container {
+  background-color: black;
+}
+
+/* Grid layer with animation */
+.grid-background-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, #e4e4e7 1px, transparent 1px),
+    linear-gradient(to bottom, #e4e4e7 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 0;
+
+  /* Animate diagonally */
+  animation: moveGrid 30s linear infinite;
+}
+
+.dark .grid-background-container::before {
+  background-image: 
+    linear-gradient(to right, #262626 1px, transparent 1px),
+    linear-gradient(to bottom, #262626 1px, transparent 1px);
+}
+
+/* Radial fade overlay */
+.grid-background-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-color: white;
+  mask-image: radial-gradient(ellipse at center, transparent 20%, black 100%);
+  z-index: 1;
+}
+
+.dark .grid-background-container::after {
+  background-color: black;
+}
+
+/* Content on top */
+.grid-background-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Keyframes for diagonal movement */
+@keyframes moveGrid {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 400px 400px, 400px 400px;
+  }
+}
