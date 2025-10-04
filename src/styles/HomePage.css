@@ -1,23 +1,25 @@
 @import url(NavBar.css);
-.homepage_container{
-   
-   
+
+.homepage_container {
+
+
     margin-top: 60px;
     height: 100vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.left_side{
+
+.left_side {
     flex: 1;
-    
+
     display: flex;
     flex-direction: column;
 }
-.tag{
-    
-}
-.tag h1{
+
+.tag {}
+
+.tag h1 {
     color: white;
     font-size: 50px;
     font-family: "Orbitron", sans-serif;
@@ -26,10 +28,10 @@
     margin-top: 100px;
 
 }
-.short_desc{
-    
-}
-.short_desc p{
+
+.short_desc {}
+
+.short_desc p {
     color: white;
     font-size: 20px;
     font-family: "Orbitron", sans-serif;
@@ -38,18 +40,21 @@
     margin-top: 20px;
     text-align: justify;
 }
-.right_side{
+
+.right_side {
     flex: 1;
-    
-   
+
+
 }
-.explore_button{
- 
+
+.explore_button {
+
     display: flex;
     justify-content: center;
     padding: 20px 100px;
     margin-top: 50px;
 }
+
 .explore_button button {
     background-color: #d30c48;
     color: white;
@@ -75,59 +80,74 @@
         transform: scale(1);
         box-shadow: 0 0 5px #d30c48, 0 0 10px #d30c48, 0 0 20px #d30c48, 0 0 40px #d30c48;
     }
+
     50% {
         transform: scale(1.05);
         box-shadow: 0 0 10px #d30c48, 0 0 20px #d30c48, 0 0 30px #d30c48, 0 0 50px #d30c48;
     }
+
     100% {
         transform: scale(1);
         box-shadow: 0 0 5px #d30c48, 0 0 10px #d30c48, 0 0 20px #d30c48, 0 0 40px #d30c48;
     }
 }
+
 .img_Container {
     width: 100%;
-    height: 100vh; /* or any specific height you want */
+    height: 100vh;
+    /* or any specific height you want */
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* ensures image doesn’t overflow */
+    overflow: hidden;
+    /* ensures image doesn’t overflow */
 }
 
 .img_Container img {
     width: 100%;
     height: 100%;
     mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-    object-fit: cover; /* this makes the image cover the container */
+    object-fit: cover;
+    /* this makes the image cover the container */
 }
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .homepage_container {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         text-align: center;
         margin-top: -40px;
     }
-    .left_side, .right_side {
+
+    .left_side,
+    .right_side {
         flex: none;
         width: 100%;
     }
+
     .tag h1 {
         font-size: 30px;
     }
+
     .short_desc p {
         font-size: 16px;
         padding: 10px;
     }
+
     .explore_button {
         padding: 10px 50px;
         margin-top: 20px;
     }
+
     .explore_button button {
         font-size: 16px;
         padding: 8px 16px;
     }
+
     .img_Container {
         margin: 40px 0;
-        height: 300px; /* adjust as needed for smaller screens */
+        height: 300px;
+        /* adjust as needed for smaller screens */
     }
 }
