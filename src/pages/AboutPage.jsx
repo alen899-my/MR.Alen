@@ -20,17 +20,17 @@ const roadmapData = [
   },
   {
     title: "Mkm Higher Secondary School ",
-    desc: "Completed higher secondary education with focus on Science subjects, participated in competitions and developed leadership skills.",
+    desc: "Completed higher secondary education with focus on Computer Science subjects, participated in competitions and developed leadership skills.",
     img: plustwo, 
   },
   {
     title: "MGM college of Engineering ",
-    desc: "Pursued higher education, gained specialized knowledge, and engaged in projects and activities that shaped my career path.",
+    desc: "Pursued Btech Computer Science, gained Core Engineering knowledge, and engaged in projects and activities that shaped my career path.",
     img: college,
   },
   {
     title: "Graduation",
-    desc: "Achieved my degree, marking the successful completion of my academic journey.",
+    desc: "Achieved my  Btec Graduation degree, marking the successful completion of my academic journey.",
     img: graduate, 
   },
 ];
