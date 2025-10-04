@@ -86,8 +86,9 @@ const AboutPage = () => {
                  L80 700
                  "
               stroke="#f50909ff"
-              strokeWidth="0.2"
+              strokeWidth="0.5"
               fill="none"
+              
               strokeLinecap="round"
             />
           </svg>
