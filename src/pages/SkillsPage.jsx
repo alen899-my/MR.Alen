@@ -93,7 +93,7 @@ const SkillsPage = () => {
 },
     {
       id: 'tab-design',
-      title: 'Backend',
+      title: 'Backend tech',
       content: (
         <div className="skill-icons">
           <div className="skill_item"><img src={asp} alt="JavaScript" /><span>asp dot net</span></div>
