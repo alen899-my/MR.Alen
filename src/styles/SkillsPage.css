@@ -27,14 +27,33 @@
   margin-bottom: 2rem;
 }
 
-/* Grid for image skills */
+/* Base Grid for skills (Auto-Fit for larger screens) */
 .skill-icons {
   display: grid;
+  /* Use auto-fit for flexible column count on wider screens */
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 1.5rem;
   justify-items: center;
   padding: 1rem 0;
 }
+
+/* ------------------------------------------------------------- */
+/* --- MEDIA QUERY: Force Two Columns on Smaller Screens --- */
+/* ------------------------------------------------------------- */
+@media (max-width: 600px) {
+  .skill-icons {
+    /* Override the base grid to explicitly create two equal columns */
+    grid-template-columns: 1fr 1fr;
+    /* Optional: Slightly reduce the gap on smaller screens */
+    gap: 1rem; 
+  }
+  
+  /* Optional: Adjust padding in the main container for small screens */
+  .full_tab {
+      padding: 1rem;
+  }
+}
+
 
 .skill_item {
   display: flex;
