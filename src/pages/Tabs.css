@@ -1,0 +1,115 @@
+/* File: Tabs.css (Enhanced for Responsiveness) */
+
+/* Import your custom font/styles if needed, like the one you have */
+@import url("../styles/NavBar.css"); 
+
+/* --- Tab Navigation Container (Base Style) --- */
+.tabs_nav {
+    display: flex;
+    flex-wrap: wrap; 
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+    /* Ensure the container takes full width on all screens */
+    width: 100%; 
+}
+
+/* --- Individual Tab Button (Base Style) --- */
+.tab_button {
+    padding: 10px 15px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent; 
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+    transition: all 0.3s ease;
+    margin-right: 5px; 
+    /* Base: Allow buttons to be flexible, but mostly content-sized */
+    flex-grow: 0; 
+}
+
+.tab_button:hover {
+    color: #e20c3a; /* Hover color */
+}
+
+/* --- Active Tab Button Style --- */
+.tab_button.active {
+    color: #df0b27; /* Primary color */
+    border-bottom: 3px solid #e7131e; /* Active indicator line */
+    font-weight: 600;
+}
+
+/* --- Tab Content Container --- */
+.tabs_content {
+    padding: 15px 0;
+}
+
+/* ============================================== */
+/* RESPONSIVE IMPROVEMENTS               */
+/* ============================================== */
+
+/* @media for Smaller Screens (e.g., screens up to 600px wide) */
+@media (max-width: 600px) {
+    
+    /* 1. Stack the buttons vertically and make them full width */
+    .tabs_nav {
+        /* Remove flex-wrap when stacking so they don't break awkwardly */
+        flex-direction: column; 
+        border-bottom: none; /* Remove the bottom border from the nav container */
+    }
+
+    /* 2. Style individual buttons for better tap targets on mobile */
+    .tab_button {
+        width: 100%; /* Full width */
+        margin-right: 0; /* Remove horizontal margin */
+        border: 1px solid #eee; /* Add a subtle border to each button */
+        border-bottom: none; /* We'll manage borders below */
+        text-align: left; /* Align text to the left */
+        padding: 12px 15px; /* Increase padding for better tap area */
+        font-size: 0.95rem; /* Slightly smaller font to save space */
+        
+        /* The buttons will now look like a stacked list item */
+        margin-bottom: -1px; /* Overlap borders slightly to make them look connected */
+    }
+
+    /* Target the very last button to give it a bottom border and rounded corners */
+    .tab_button:last-child {
+        border-bottom: 1px solid #eee; 
+        border-radius: 0 0 8px 8px;
+    }
+    
+    /* Target the very first button for rounded top corners */
+    .tab_button:first-child {
+        border-radius: 8px 8px 0 0;
+    }
+
+    /* 3. Style the Active Tab for the mobile stack */
+    .tab_button.active {
+        color: #fff; /* White text on active tab */
+        background-color: #df0b27; /* Solid red background */
+        border-color: #df0b27; /* Red border */
+        /* Remove the indicator line, which looks odd in a stacked layout */
+        border-bottom: 1px solid #df0b27; 
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for lift */
+        z-index: 10; /* Keep active button on top of borders */
+    }
+    
+    /* Ensure the last active button's border is correct */
+    .tab_button.active:last-child {
+        border-bottom: 1px solid #df0b27;
+    }
+
+    /* Remove the hover effect on the active button if the touch device has weird hover support */
+    .tab_button.active:hover {
+        color: #fff;
+    }
+    
+    /* Give the content area some top margin if the nav is stacked */
+    .tabs_content {
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+    }
+}
