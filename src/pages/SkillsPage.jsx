@@ -24,6 +24,13 @@ import asp from "../assets/backend/asp.png"
 import django from "../assets/backend/django.png"
 import nodejs from "../assets/backend/nodejs.png"
 
+
+import  MongoDb from "../assets/Database/MongoDb.png"
+import  mysql from "../assets/Database/mysql.png"
+import  sql from "../assets/Database/sql.png"
+
+
+
 const SkillsPage = () => {
   const skillTabs = [
     {
@@ -97,10 +104,12 @@ const SkillsPage = () => {
     },
     {
       id: 'tab-ai',
-      title: 'AI & Machine Learning',
+      title: 'Databases',
       content: (
         <div className="skill-icons">
-          
+          <div className="skill_item"><img src={MongoDb} alt="JavaScript" /><span>Mongo Db</span></div>
+          <div className="skill_item"><img src={mysql} alt="TypeScript" /><span>Mysql</span></div>
+          <div className="skill_item"><img src={sql} alt="Python" /><span>Sql server</span></div>
         </div>
       ),
     },
