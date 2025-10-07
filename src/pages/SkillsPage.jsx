@@ -15,7 +15,7 @@ import Rpro from "../assets/proglang/Rpro.png"
 import Bootstrap from "../assets/frontend/Bootstrap.png"
 import css from "../assets/frontend/css.png"
 import html from "../assets/frontend/html.png"
-import jquery from "../assets/frontend/jquery.png"
+import qu from "../assets/frontend/qu.png"
 import React from "../assets/frontend/React.png"
 import Tailwindcss from "../assets/frontend/Tailwindcss.png"
 
@@ -73,7 +73,7 @@ const SkillsPage = () => {
 
           {/* Item 4: JQuery */}
           <div className="skill_item">
-            <img src={jquery} alt="jQuery Logo" />
+            <img src={qu} alt="jQuery Logo" />
             <span>jQuery</span>
           </div>
 
