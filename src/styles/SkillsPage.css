@@ -30,7 +30,6 @@
 /* Base Grid for skills (Auto-Fit for larger screens) */
 .skill-icons {
   display: grid;
-  /* Use auto-fit for flexible column count on wider screens */
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 1.5rem;
   justify-items: center;
@@ -73,10 +72,16 @@
 }
 
 .skill_item img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
+  /* Inherit dimensions from the wrapper */
+  width: 100%; 
+  height: 100%;
+  
+  /* Use 'contain' to ensure the whole logo is visible */
+  object-fit: contain; 
+  
+  /* Remove margin from the img tag, it's now on the wrapper */
+  margin-bottom: 0; 
+  
   transition: transform 0.2s ease;
 }
 
@@ -89,4 +94,10 @@
   font-weight: 500;
   color: #374151;
   text-align: center;
+}
+.skill_item .icon-wrapper {
+    /* Define the exact dimensions for the wrapper */
+    width: 50px; 
+    height: 50px; 
+    margin-bottom: 0.5rem;
 }
