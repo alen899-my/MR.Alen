@@ -1,4 +1,5 @@
 import React from "react";
+import { Analytics } from "@vercel/analytics/next"
 import { Outlet } from "react-router-dom";
 import  GridBackground  from "./components/GridBackground";
 import "../src/styles/App.css";
