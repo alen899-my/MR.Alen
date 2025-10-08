@@ -1,6 +1,7 @@
 import React from "react";
 import { Analytics } from "@vercel/analytics/next"
 import { Outlet } from "react-router-dom";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import  GridBackground  from "./components/GridBackground";
 import "../src/styles/App.css";
 import NavBar from "./components/NavBar";
