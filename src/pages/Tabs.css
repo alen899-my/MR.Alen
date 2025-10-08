@@ -119,7 +119,7 @@
     .tabs_content {
         margin-top: 5px; /* Less margin since the nav is more compact */
         padding: 10px;
-        border: 1px solid #eee;
+       
         border-radius: 8px;
     }
 }

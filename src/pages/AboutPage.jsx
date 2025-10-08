@@ -50,7 +50,7 @@ const AboutPage = () => {
       { drawSVG: "0%" },
       {
         drawSVG: "100%",
-        duration: 3,
+        duration: 5,
         ease: "power2.inOut",
         scrollTrigger: {
           trigger: roadmapWrapperRef.current,

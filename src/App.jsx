@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import HomePage from "../src/pages/HomePage"
 import AboutPage from "./pages/AboutPage";
 import SkillsPage from "./pages/SkillsPage";
+import ProjectsPage from "./pages/ProjectsPage";
 function App() {
   return (
     <>
@@ -16,7 +17,7 @@ function App() {
       <HomePage/>
       <AboutPage/>
       <SkillsPage/>
-      
+      <ProjectsPage/>
     </GridBackground></>
   );
 }

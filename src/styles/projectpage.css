@@ -1,0 +1,253 @@
+/* --- Global Styles & Setup --- */
+@import url("../styles/NavBar.css");
+:root {
+    --primary-color: #ffffff; /* Blue */
+    --secondary-color: #faf8f8; /* Light Gray/Off-White */
+    --text-color: #333;
+    --dark-bg: #1e1e1e; /* Dark background for contrast */
+    --card-bg: #d3d3d3;
+    --transition-speed: 0.6s;
+}
+
+.project_section {
+    padding: 80px 0;
+    color: var(--secondary-color);
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+.section_heading {
+    font-size: 3.5rem;
+    margin-bottom: 50px;
+    font-weight: 700;
+    font-family: "Orbitron", sans-serif;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+/* --- Carousel Structure --- */
+
+.carousel_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1000px; /* Max width of the entire carousel system */
+    margin: 0 auto;
+    position: relative;
+    padding: 0 40px; /* Space for buttons */
+}
+
+.carousel_track_container {
+    overflow: hidden; /* Crucial for clipping non-visible cards */
+    width: 100%;
+    height: 450px; /* Fixed height for the card display area */
+}
+
+.carousel_track {
+    display: flex;
+    height: 100%;
+    transition: transform var(--transition-speed) ease-in-out;
+}
+
+/* --- Project Card Styling (The Unique Design) --- */
+
+.project_card {
+    min-width: 100%; /* Each card takes up the full container width */
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    perspective: 1000px; /* Establishes the 3D space for the flip effect */
+}
+
+.card_inner {
+    position: relative;
+    width: 80%; /* Width of the actual card */
+    height: 100%;
+    text-align: center;
+    transition: transform 1s; /* Flip transition time */
+    transform-style: preserve-3d; /* Keep children in 3D space */
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Flip on hover (Optional: change to 'active' class for click-to-flip) */
+.project_card:hover .card_inner {
+    transform: rotateY(180deg);
+}
+
+.card_front, .card_back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Hide the back side during the flip */
+    backface-visibility: hidden;
+    border-radius: 10px;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Front Side: The initial view */
+.card_front {
+    background: var(--card-bg);
+    color: var(--text-color);
+}
+
+.project_image_space {
+    width: 100%;
+    height: 70%;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: #6c757d;
+    overflow: hidden; /* To contain the eventual image */
+}
+
+.project_title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Back Side: The flipped view */
+.card_back {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    transform: rotateY(180deg); /* Start rotated */
+    text-align: left;
+}
+
+.project_title_back {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.project_description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Pushes the link to the bottom */
+}
+
+.project_link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 15px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.project_link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* --- Carousel Navigation --- */
+
+.carousel_button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--primary-color);
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s, transform 0.3s;
+    font-size: 1.5rem;
+    outline: none;
+}
+
+.carousel_button:hover {
+    background: var(--primary-color);
+    color: var(--dark-bg);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev_button {
+    left: 0; /* Positioned relative to carousel_wrapper padding */
+}
+
+.next_button {
+    right: 0; /* Positioned relative to carousel_wrapper padding */
+}
+
+/* --- Navigation Dots --- */
+
+.carousel_dots {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    background-color: #6c757d;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.dot.active_dot, .dot:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+@media (max-width: 768px) {
+    .section_heading {
+        font-size: 2rem;
+    }
+
+    .carousel_track_container {
+        height: 400px;
+    }
+
+    .card_inner {
+        width: 95%; /* Make card take more width on smaller screens */
+    }
+
+    .carousel_button {
+        padding: 10px;
+        font-size: 1.2rem;
+        /* Move buttons outside padding for smaller screen touch targets */
+    }
+
+    /* Disable flip effect on very small screens for better mobile experience */
+    .project_card:hover .card_inner {
+        transform: none;
+    }
+
+    .card_back {
+        display: none; /* Hide back side on mobile */
+    }
+
+    .card_front {
+        /* Adjust front side content for better fit on mobile */
+        justify-content: flex-start;
+    }
+
+    .project_image_space {
+        height: 60%;
+    }
+}
