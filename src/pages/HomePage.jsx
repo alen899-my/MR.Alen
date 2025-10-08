@@ -81,7 +81,7 @@ const HomePage = () => {
     <div className="homepage_container">
       <div className="left_side" ref={leftRef}>
         <div className="tag">
-          <h1 ref={headlineRef}>The right Person For your Industry!</h1>
+          <h1 ref={headlineRef}>The Right Person For your Industry!</h1>
         </div>
         <div className="short_desc">
           <p ref={pRef}>
