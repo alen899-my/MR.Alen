@@ -15,7 +15,7 @@
   margin-bottom: 50px;
   text-align: center;
   font-weight: 700;
-  color: rgb(214, 24, 24);
+  color: rgb(255, 255, 255);
 }
 
 .road_map_intro {
@@ -30,7 +30,7 @@
   font-size: 1.2rem;
   line-height: 1.8;
   text-align: center;
-  color: #ccc;
+  color: #ccccccc4;
   background: rgba(255, 255, 255, 0.05);
   padding: 30px;
   border-radius: 15px;
@@ -54,7 +54,7 @@
   height: 100%;
   width: 100%;
   z-index: 1;
-  filter: drop-shadow(0 0 10px rgba(211, 12, 72, 0.5));
+  filter: drop-shadow(0 0 10px rgba(219, 11, 11, 0.5));
 }
 
 .roadmap_item {
@@ -118,7 +118,7 @@
 }
 
 .year_badge {
-  background: linear-gradient(45deg, #d30c48, #ff6b6b);
+  background: linear-gradient(45deg, #d30c48, #fc1414);
   color: white;
   padding: 8px 16px;
   border-radius: 20px;
@@ -167,7 +167,7 @@
   color: #fff;
   font-size: 1.4rem;
   margin-bottom: 10px;
-  background: linear-gradient(45deg, #fff, #ff6b6b);
+  background: linear-gradient(45deg, #fff, #fc1414);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

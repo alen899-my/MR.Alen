@@ -50,7 +50,7 @@ const SkillsPage = () => {
     },
     {
     id: 'tab-stack',
-    title: 'Tech Stack',
+    title: 'Front End',
     content: (
         <div className="skill-icons">
           {/* Item 1: Bootstrap */}
@@ -93,7 +93,7 @@ const SkillsPage = () => {
 },
     {
       id: 'tab-design',
-      title: 'Backend tech',
+      title: 'Backend end',
       content: (
         <div className="skill-icons">
           <div className="skill_item"><img src={asp} alt="JavaScript" /><span>asp dot net</span></div>

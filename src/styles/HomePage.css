@@ -20,7 +20,7 @@
 }
 
 .tag h1 {
-    color: rgba(255, 0, 0, 0.856);
+    color: rgba(255, 255, 255, 0.856);
     font-size: 50px;
     font-family: "Orbitron", sans-serif;
     padding: 20px;
@@ -31,7 +31,7 @@
 .short_desc {}
 
 .short_desc p {
-    color: white;
+    color: rgba(230, 222, 222, 0.685);
     font-size: 20px;
     font-family: "Orbitron", sans-serif;
     padding: 20px;
